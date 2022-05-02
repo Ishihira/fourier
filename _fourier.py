@@ -43,8 +43,8 @@ class Function():
         self.a[0] = (1 / pi) * self._integral()
         self.b[0] = None
         for i in tqdm(range(1, n + 1)):
-            self.a[i] = self._integral(cos_nx, i)
-            self.b[i] = self._integral(sin_nx, i)
+            self.a[i] = 1 / pi * self._integral(cos_nx, i)
+            self.b[i] = 1 / pi * self._integral(sin_nx, i)
         self.computed_fourier = True
         
 
@@ -72,11 +72,3 @@ class Function():
         plt.show()
 
 
-# ここからテスト
-def f(x):
-    return abs(x)
-
-abs_x = Function(f)
-abs_x.compute_fourier(n=100)
-abs_x.show()
-# print(list(abs_x.a.values))
